@@ -4,6 +4,13 @@
     <meta charset="utf-8">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css')}}">
+    <script>
+      function getKeyword(){
+      var keyword = document.getElementById("kword").value;
+
+      localStorage.setItem("KeyWord", keyword);
+      }
+    </script>
   </head>
   <body>
     <header>
@@ -29,8 +36,8 @@
         <div class="container">
           <h1>Enter the Topic of Tweets for Sentiment Analysis.</h1>
           <form action="/predict" method="POST">
-            <textarea name="Tweet" placeholder="Enter here..." rows="4" cols="50"></textarea>
-            <input type="submit" value="Analyse" class="button">
+            <textarea id = "kword" name="Tweet" placeholder="Enter here..." rows="4" cols="50"></textarea>
+            <input type="submit" value="Analyse" class="button" onclick="getKeyword()"> 
           </form>
         </div>
       </section>

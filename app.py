@@ -136,6 +136,7 @@ def predict():
         tweets.append(data.tweets[i])
         ops.append('Positive')
     output=dict(zip(tweets,ops))
+    output.update({"keyword": comment})
     Neucount = ops.count('Neutral')
     Negcount = ops.count('Negative')
     Poscount = ops.count('Positive')
